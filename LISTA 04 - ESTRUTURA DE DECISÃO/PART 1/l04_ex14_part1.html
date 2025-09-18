@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Análisar Conta</h1>
+  Saldo da conta do banco <br>
+  <input type="number" id="input_saldo"> <br>
+  Valor a ser transferido <br>
+  <input type="number" id="input_valorDebito"> <br>
+  <button onclick="analisarConta()">Analisar conta</button>
+  <div id="div_mensagem"></div>
+</body>
+
+</html>
+<script>
+  function analisarConta() {
+    var saldoAtual = Number(input_saldo.value) - Number(input_valorDebito.value);
+    if (saldoAtual >= 0) {
+      div_mensagem.innerHTML = `<span style="color: blue; font-style: italic;" >O saldo atual da conta corrente é ${saldoAtual}</span>`
+    } else {
+      div_mensagem.innerHTML = `<span style="color: red; font-weight: bold;">O saldo atual da conta corrente é ${saldoAtual}</span>`
+    }
+  }
+</script>

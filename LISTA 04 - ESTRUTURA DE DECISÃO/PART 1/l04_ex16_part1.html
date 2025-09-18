@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1> Peso no elevador v2</h1>
+  Quantidade de homens no elevador <br>
+  <input type="number" id="input_qtHomens"> <br>
+  Quantidade de mulheres no elevador <br>
+  <input type="number" id="input_qtMulheres"> <br>
+  <button onclick="somarPeso()">Ligar elevador</button>
+  <div id="div_mensagem"></div>
+  <script>
+    function somarPeso() {
+      var pesoHomens = Number(input_qtHomens.value) * 90;
+      var pesoMulheres = Number(input_qtMulheres.value) * 70;
+      var pesoTotal = pesoHomens + pesoMulheres;
+      var pesoSobrando = pesoTotal - 500;
+
+      if (pesoTotal <= 500) {
+        div_mensagem.innerHTML = `<span style="color: green">Elevador vai se mover, pois está com ${pesoTotal}kg</span>`
+      } else {
+        div_mensagem.innerHTML = `<span style="color: red">Alguém precisa descer. Precisa perder ${pesoSobrando}kg para mover o elevador</span>`
+      }
+    }
+  </script>
