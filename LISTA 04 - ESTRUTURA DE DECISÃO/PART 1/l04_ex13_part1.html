@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Análisar finanças</h1>
+  Saldo da conta do banco <br>
+  <input type="text" id="input_saldo"> <br>
+  <button onclick="analisarSaldo()">Verificar Finanças</button>
+  <div id="div_mensagem"></div>
+  <span style="color: red;">
+    <div id="div_mensagem2"></div>
+  </span>
+  <span style="color: blue;">
+    <div id="div_mensagem3"></div>
+  </span>
+
+</body>
+
+</html>
+<script>
+  function analisarSaldo() {
+    var saldo = Number(input_saldo.value);
+    div_mensagem.innerHTML = "";
+    div_mensagem2.innerHTML = "";
+    div_mensagem3.innerHTML = "";
+    if (saldo == 0) {
+      div_mensagem.innerHTML = "Conta zerada";
+    }
+    if (saldo < 0) {
+      div_mensagem2.innerHTML = "Está devendo!";
+    }
+    if (saldo > 0) {
+      div_mensagem3.innerHTML = "Saldo positivo! sorriso";
+    }
+  }
+</script>
