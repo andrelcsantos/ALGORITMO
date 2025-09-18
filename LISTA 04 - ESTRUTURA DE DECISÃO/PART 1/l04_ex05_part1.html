@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1> Rola a pizza?</h1>
+  Valor da pizza <br>
+  <input type="number" id="input_valorPizza"> <br>
+  Quantidade de pessoas <br>
+  <input type="number" id="input_qtPessoas"> <br>
+  <button onclick="dividirValor()">Rola a pizza?</button>
+  <div id="div_mensagem"></div>
+  <span style="color: red; font-style: italic;"><div id="div_mensagem2"></div></span>
+
+</body>
+</html>
+<script>
+  function dividirValor() {
+    var valorPizza = Number(input_valorPizza.value);
+    var qtPessoas = Number(input_qtPessoas.value);
+    var valorDividido = valorPizza / qtPessoas;
+
+    
+    div_mensagem.innerHTML = `Cada amigo vai pagar R$${valorDividido} pela pizza<br>`; 
+    div_mensagem2.innerHTML = '';
+    if (valorDividido > 20 ) {
+      div_mensagem2.innerHTML = 'Deu ruim! Pizza muito cara!<br>';
+    }
+  }
+</script>

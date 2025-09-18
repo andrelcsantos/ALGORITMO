@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1> Cheque especial</h1>
+  Saldo da conta <br>
+  <input type="number" id="input_saldoConta"> <br>
+  Valor a ser transferido <br>
+  <input type="number" id="input_valorTransferido"> <br>
+  <button onclick="saldoConta()">Analisar conta</button>
+  <div id="div_mensagem"></div>
+  <span style="color: red; font-weight: bold;"><div id="div_mensagem2"></div></span>
+
+</body>
+</html>
+<script>
+  function saldoConta() {
+    var saldo = Number(input_saldoConta.value);
+    var transferencia = Number(input_valorTransferido.value);
+    var saldoAtual = saldo - transferencia;
+
+    if (saldoAtual >= 0){
+      div_mensagem.innerHTML = `O saldo atual da conta corrente é ${saldoAtual}`;
+    }
+    else {
+      div_mensagem2.innerHTML = `O saldo atual da conta corrente é ${saldoAtual}`;
+    }
+  }
+</script>

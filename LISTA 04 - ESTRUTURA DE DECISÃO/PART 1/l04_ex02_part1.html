@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1> Controle de Refrigerante </h1>
+  Quantidade de lata de refrigerantes consumidas por dia <br>
+  <input type="text" id="input_qtRefri"> <br>
+  <button onclick="calcularQtRefris()">Calcular Refrigerantes</button>
+  <div id="div_mensagem"></div>
+
+</body>
+</html>
+<script>
+  function calcularQtRefris() {
+    var quantidadeDeDiasNoAno = 365;
+    var qtRefri = Number(input_qtRefri.value);
+    var refrisAno = qtRefri * quantidadeDeDiasNoAno;
+    div_mensagem.innerHTML += `A quantidade de refrigerantes tomado no ano: ${refrisAno}<br>`; 
+    if (refrisAno >= 500) {
+      div_mensagem.innerHTML += "Cuidado com Diabetes!<br>";
+    } 
+  }
+</script>

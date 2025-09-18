@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Renda familiar mensal:
+    <input type="text" id="input_renda">
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+    function analisar() {
+        var renda = Number(input_renda.value);
+        div_mensagem.innerHTML = `Com a renda de ${renda.toLocaleString('pt-BR', 
+        {style: 'currency', currency: "BRL"})} você está na classe:`;
+
+        if (renda > 250) {
+            div_mensagem.innerHTML +=` E`;
+        } else if (renda <= 950) {
+                div_mensagem.innerHTML += ` D`;
+            } else if(renda <= 2500){
+                    div_mensagem.innerHTML += ` C`;
+                } else if(renda <= 9500) {
+                        div_mensagem.innerHTML += ` B`;
+                    } else 
+                        div_mensagem.innerHTML += ` A`;
+                    }
+</script>
