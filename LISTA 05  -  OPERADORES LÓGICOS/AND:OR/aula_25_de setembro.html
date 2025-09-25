@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Digite uma frase: <br>
+    <input oninput="analisar()" ="text" id="input_frase"> <br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var frase = input_frase.value;
+        frase = frase.trim();
+        var tamanhoFrase = frase.length;
+        var fraseMinuscula = frase.toLowerCase();
+        var fraseMaiuscula = frase.toUpperCase();
+
+        div_mensagem.innerHTML = `
+            Frase Original: ${frase} <br>
+            Frase Maiúscula: ${fraseMaiuscula} <br>
+            Frase Minúscula: ${fraseMinuscula} <br>
+            Tamanho da Frase: ${tamanhoFrase} <br>
+            Primeira Letra: ${frase[0]} <br>
+            Terceira Letra: ${frase[2]} <br>
+            Última Letra: ${frase[tamanhoFrase - 1]}<br><br>
+            `;
+
+        if (frase.startsWith('a') || frase.startsWith('A')){
+            div_mensagem.innerHTML += `
+                Frase começa com 'a' ou 'A'? <b style="color: green;">Válido.</b><br>`
+        } else {
+            div_mensagem.innerHTML += `
+                Frase começa com 'a' ou 'A'? <b style="color: red;">Inválido.</b><br>`
+        } 
+        
+        if (frase.endsWith('.com') || frase.endsWith('.COM') || frase.endsWith("sptech.school")){
+            div_mensagem.innerHTML += `
+                Frase termina com '.com' ou '.COM'? <b style="color: green;">Válido.</b><br>`
+        } else {
+            div_mensagem.innerHTML += `
+                Frase termina com '.com' ou '.COM'? <b style="color: red;">Inválido.</b><br>`
+        }
+
+        if (frase.includes('@')) {
+            div_mensagem.innerHTML += `
+                Frase inclui '@'? <b style="color: green;">Válido.</b><br>`
+        } else {
+            div_mensagem.innerHTML += `
+                Frase inclui '@'? <b style="color: red;">Inválido.</b><br>`
+        }
+
+        if (fraseMinuscula.includes('abc')) {
+            div_mensagem.innerHTML += `
+                Frase inclui 'abc'? <b style="color: green;">Válido.</b><br>`
+        } else {
+            div_mensagem.innerHTML += `
+                Frase inclui 'abc'? <b style="color: red;">Inválido.</b><br>`
+        }
+        div_mensagem.innerHTML += `
+        Frase com 7 no lugar do 't': ${frase.replace('t', '7')} <br>
+        Frase Formatada: ${frase.replaceAll('t', '7').replaceAll('a', '@').replaceAll('T', '7').replaceAll('A', '@')} <br>
+        `
+    }
+</script>

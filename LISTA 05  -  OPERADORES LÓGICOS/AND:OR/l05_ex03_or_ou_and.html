@@ -12,11 +12,13 @@
         <option>Comum</option>
         <option>Estudante</option>
         <option>Idoso/PNE</option>
+        <option selected disabled value="#">Selecione uma opção</option> 
     </select> <br><br>
     Passagem <br>
     <select id="selecao_passagem">
         <option>Passagem única</option>
         <option>Passagem integração</option>
+        <option selected disabled value="#">Selecione uma opção</option>
     </select> <br><br>
     <button onclick="verificarPreco()">Simular preço</button>
 
@@ -26,11 +28,11 @@
 <script>
     var valorPassagemUnica = 4.40;
     var valorPassagemIntegracao = 5.90;
+    var valor = 0;
 
     function verificarPreco() {
         var passageiro = selecao_passageiro.value;
         var passagem = selecao_passagem.value;
-        var valor = 0;
 
         if(passageiro == 'Comum' && passagem == 'Passagem única'){
             valor = valorPassagemUnica;
@@ -41,10 +43,8 @@
             valor = valorPassagemUnica /2;
         } else if (passageiro == 'Estudante' && passagem == 'Passagem integração'){
             valor = valorPassagemIntegracao / 2;
-        } else (passageiro == 'Idoso/PNE' && (passagem == 'Passagem única' || passagem == 'Passagem integração')) 
+        } else if(passageiro == 'Idoso/PNE' && (passagem == 'Passagem única' || passagem == 'Passagem integração')) 
         {valor = 0;}
-        
         div_mensagem.innerHTML = `Valor da passagem escolhida: R$${valor}`;
-
     }
 </script>
