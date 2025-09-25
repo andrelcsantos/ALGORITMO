@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Análise de Parcelamento de Compra</h1>
+    Digite o modo de pagamento: <br>
+    <input type="text" id="input_pagamento"> <br>
+    <button onclick="analisarCompra()">Analisar compra</button>
+    
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+function analisarCompra() {
+        var pagamento = input_pagamento.value;
+        
+        if (pagamento == "Dinheiro" || pagamento == "Cartão de débito") {
+            div_mensagem.innerHTML = "Você terá que pagar a vista";
+        } else if (pagamento == "Cartão de crédito" || pagamento == "Boleto") {
+            div_mensagem.innerHTML = "Pagamento poderá ser parcelado";
+        }
+    }
+</script>

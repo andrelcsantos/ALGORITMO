@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Análise de frequência do aluno</h1>
+  Digite a temperatura do ambiente <br>
+  <input type="number" id="input_temperatura"> <br>
+
+  <button onclick="verificarClima()">Verificar clima</button>
+
+  <div id="div_mensagem"></div>
+</body>
+</html>
+  <script>
+    function verificarClima() {
+      var temperatura = Number(input_temperatura.value);
+
+      if (temperatura < 10) {
+        div_mensagem.innerHTML = 
+          '<p>Apropriada p/ conservar alimento</p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/Bananas_%28Alabama_Extension%29.jpg/1200px-Bananas_%28Alabama_Extension%29.jpg">';
+      } else {
+        div_mensagem.innerHTML = 
+          '<p>Inapropriada p/ conservar alimento</p><img src="https://img.freepik.com/fotos-premium/banana-escura-e-estragada-em-cima-da-mesa-fruta-podre_370059-243.jpg">';
+      }
+    }
+  </script>

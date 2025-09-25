@@ -20,15 +20,15 @@
 </body>
 </html>
 <script>
-  function somarPeso() {
-    var pesoHomens = Number(input_qtHomens.value) * 80;
-    var pesoMulheres = Number(input_qtMulheres.value) * 60;
-    var pesoTotal = pesoHomens + pesoMulheres;
-    
-    div_mensagem.innerHTML = `Este elevador suporta 800kg e o peso estimado desta lotação é de ${pesoTotal}kg`;
-    div_mensagem2.innerHTML = "";
-    if (pesoTotal > 800){
-      div_mensagem2.innerHTML = "Será necessário que alguém desça para que o elevador se movimente";
-    }
+function somarPeso() {
+  var pesoHomens = Number(input_qtHomens.value) * 80;
+  var pesoMulheres = Number(input_qtMulheres.value) * 60;
+  var pesoTotal = pesoHomens + pesoMulheres;
+  
+  div_mensagem.innerHTML = `Este elevador suporta 800kg e o peso estimado desta lotação é de ${pesoTotal}kg`;
+  div_mensagem2.innerHTML = "";
+  if (pesoTotal > 800){
+    div_mensagem2.innerHTML = "Será necessário que alguém desça para que o elevador se movimente";
   }
+}
 </script>

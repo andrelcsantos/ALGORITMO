@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Preço bilhete único</h1>
+    Passageiro <br>
+    <select id="selecao_passageiro">
+        <option>Comum</option>
+        <option>Estudante</option>
+        <option>Idoso/PNE</option>
+    </select> <br><br>
+    Passagem <br>
+    <select id="selecao_passagem">
+        <option>Passagem única</option>
+        <option>Passagem integração</option>
+    </select> <br><br>
+    <button onclick="verificarPreco()">Simular preço</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var valorPassagemUnica = 4.40;
+    var valorPassagemIntegracao = 5.90;
+
+    function verificarPreco() {
+        var passageiro = selecao_passageiro.value;
+        var passagem = selecao_passagem.value;
+        var valor = 0;
+
+        if(passageiro == 'Comum' && passagem == 'Passagem única'){
+            valor = valorPassagemUnica;
+            div_mensagem.innerHTML = "Valor da passagem escolhida: R$" + valor;
+        } else if (passageiro == 'Comum' && passagem == 'Passagem integração'){
+            valor = valorPassagemIntegracao;
+        } else if (passageiro == 'Estudante' && passagem == 'Passagem única'){
+            valor = valorPassagemUnica /2;
+        } else if (passageiro == 'Estudante' && passagem == 'Passagem integração'){
+            valor = valorPassagemIntegracao / 2;
+        } else (passageiro == 'Idoso/PNE' && (passagem == 'Passagem única' || passagem == 'Passagem integração')) 
+        {valor = 0;}
+        
+        div_mensagem.innerHTML = `Valor da passagem escolhida: R$${valor}`;
+
+    }
+</script>

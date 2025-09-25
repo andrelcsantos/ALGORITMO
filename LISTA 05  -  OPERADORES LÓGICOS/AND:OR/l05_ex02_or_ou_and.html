@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Simulador de Preferências de Compras Robervaldo</h1>
+    Tamanho da tela<br>
+    <input type="number" id="input_tamanhoTela"> <br>
+    Cores disponíveis <br>
+    <select id="selecao_opcao">
+        <option>Preto</option>
+        <option>Prata</option>
+        <option>Azul</option>
+        <option>Vermelho</option>
+        <option selected disabled value="#">Selecione uma opção</option> 
+    </select><br> <br>
+    <button onclick="avaliar()">Será que ele gosta?</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function avaliar() {
+        var tamanhoTela = Number(input_tamanhoTela.value);
+        var corCelular = selecao_opcao.value;
+
+        if(tamanhoTela >= 6.5 && (corCelular == 'Prata' || corCelular == 'Preto')) {
+             div_mensagem.innerHTML =  `<img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8-eIujdN-NVV43iM0FV62but4CPE_hT6RvQ&s">`;
+        } else {
+            div_mensagem.innerHTML =  `<img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQFaI8VYm89DRSh3ESNCSKT-WdXgVgWZPgOlw&s">`;
+        }
+    }
+</script>

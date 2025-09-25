@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Teste de divisibilidade</h1>
+  Primeiro número <br>
+  <input type="number" id="input_numero1"> <br>
+  Segundo número <br>
+  <input type="number" id="input_numero2"> <br>
+  <button onclick="testarNumero()">Testar</button>
+
+  <div id="div_mensagem"></div>
+</body>
+</html>
+  <script>
+    function testarNumero() {
+      var n1 = Number(input_numero1.value);
+      var n2 = Number(input_numero2.value);
+      var resultadoDiv = n1 % n2;
+
+      if (resultadoDiv == 0) {
+        div_mensagem.innerHTML = '<img src="https://img.icons8.com/emoji/96/000000/check-mark-emoji.png">';
+      } else {
+        div_mensagem.innerHTML = '<img src="https://img.icons8.com/emoji/96/000000/cross-mark-emoji.png">';
+      }
+    }
+  </script>

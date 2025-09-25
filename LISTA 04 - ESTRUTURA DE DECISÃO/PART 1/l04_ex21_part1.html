@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Análise de frequência do aluno</h1>
+  Digite a frequência <br>
+  <input type="number" id="input_freq"> <br>
+
+  <button onclick="analisarFrequencia()">Analisar frequência</button>
+
+  <div id="div_mensagem"></div>
+</body>
+</html>
+  <script>
+    function analisarFrequencia() {
+      var freq = Number(input_freq.value);
+
+if (freq < 50) {
+  div_mensagem.innerHTML = 
+    '<p>Frequência baixa </p><img src="https://img.freepik.com/fotos-gratis/tourist-apresentando-algo_1368-7018.jpg?semt=ais_incoming&w=740&q=80">';
+} else {
+  div_mensagem.innerHTML = 
+    '<p>Frequência boa </p><img src="https://cdn.folhape.com.br/upload/dn_arquivo/2023/08/estudante.png">';
+}
+    }
+  </script>

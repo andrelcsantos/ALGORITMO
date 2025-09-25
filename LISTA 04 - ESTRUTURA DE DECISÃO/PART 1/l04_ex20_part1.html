@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>Análise de economia</h1>
+  Sua meta de economia <br>
+  <input type="number" id="input_valorMeta"> <br>
+  Quanto você tem guardado <br>
+  <input type="number" id="input_valorGuardado"> <br>
+
+  <button onclick="analisarEco()">Analisar Economia</button>
+
+  <div id="div_mensagem"></div>
+</body>
+</html>
+  <script>
+    function analisarEco() {
+      var valorMeta = Number(input_valorMeta.value);
+      var valorGuardado = Number(input_valorGuardado.value);
+
+      if (valorGuardado >= valorMeta) {
+        div_mensagem.innerHTML = 'Parabéns, meta alcançada!<br>';
+      } else {
+        div_mensagem.innerHTML = 'Força! Ainda em busca da meta! Falta R$' + (valorMeta - valorGuardado);
+      }
+      if (valorGuardado > valorMeta) {
+        div_mensagem.innerHTML += 'Meta ultrapassada em R$' + (valorGuardado - valorMeta);
+      }
+    }
+  </script>
