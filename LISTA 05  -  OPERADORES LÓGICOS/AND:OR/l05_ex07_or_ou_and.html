@@ -19,14 +19,25 @@ Data de nascimento ou nome do animal de estimação <br>
 </body>
 </html>
 <script>
+    var tentativas = 3;
+    var usuario = 0;
+    
     function autenticar(){
     var login = input_login.value;
     var senha = input_senha.value;
     var dadoPessoal = input_dadoPessoal.value;
-        if(login == 'ana' && senha == 'braga' && (dadoPessoal == '1949' || dadoPessoal == 'louro josé')){
+
+        if (tentativas == 0 && usuario == 'bloqueado') {
+            div_mensagem.innerHTML = 'Usuário BLOQUEADO! Procure seu gerente!';
+        }
+        else if(login == 'ana' && senha == 'braga' && (dadoPessoal == '1949' || dadoPessoal == 'louro josé')){
             div_mensagem.innerHTML = 'Usuário autenticado';
+            tentativas = 3;
         } else {
-            div_mensagem.innerHTML = 'Falha na autenticação'
+            tentativas -= 1;
+            div_mensagem.innerHTML = `Você ainda tem ${tentativas} tentativa(s)`;
+        } if (tentativas == 0) {
+            usuario = 'bloqueado';
         }
     }
 </script>
