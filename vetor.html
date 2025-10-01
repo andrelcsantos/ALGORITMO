@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    Nome da fruta: <br />
+    <input type="text" id="input_fruta" /> <br /><br />
+    Pesquisar fruta: <br />
+    <input type="text" id="input_pesquisa" /><br /><br />
+    <button onclick="adicionar()">Adicionar Fruta</button>
+    <button onclick="pesquisar()">Pesquisar fruta</button> <br /><br />
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  var listaFrutas = [];
+  function adicionar() {
+    var fruta = input_frutas.values;
+    var tamanhoLista = listaFrutas.length;
+
+    listaFrutas.push(frutas);
+
+    div_mensagem.innerHTML += `
+    <br>Lista:${listaFrutas}<br>
+    Tamanho:${tamanhoLista}`;
+
+    input_frutas.value = "";
+    input_frutas.focus;
+  }
+
+  function pesquisar() {
+    var pesquisa = input_pesquisa.value;
+
+    if (listaFrutas.includes(pesquisa.toLowerCase())) {
+      div_mensagem.innerHTML = `A fruta ${pesquisa} existe na lista`;
+    } else {
+      div_mensagem.innerHTML = `A fruta ${pesquisa} NÃO existe na lista`;
+    }
+  }
+</script>

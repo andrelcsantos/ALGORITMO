@@ -1,43 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-<h1>Acesso ao Banco Melete</h1>
-Login <br>
-<input type="text" id="input_login"> <br><br>
-Senha <br>
-<input type="text" id="input_senha"> <br><br>
-Data de nascimento ou nome do animal de estimação <br>
-<input type="text" id="input_dadoPessoal"> <br><br>
-<button onclick="autenticar()">Autenticar</button>
+  </head>
+  <body>
+    <h1>Acesso ao Banco Melete</h1>
+    Login <br />
+    <input type="text" id="input_login" /> <br /><br />
+    Senha <br />
+    <input type="text" id="input_senha" /> <br /><br />
+    Data de nascimento ou nome do animal de estimação <br />
+    <input type="text" id="input_dadoPessoal" /> <br /><br />
+    <button onclick="autenticar()">Autenticar</button>
 
-<div id="div_mensagem"></div>
-</body>
+    <div id="div_mensagem"></div>
+  </body>
 </html>
 <script>
-    var tentativas = 3;
-    var usuario = 0;
-    
-    function autenticar(){
+  var tentativas = 3;
+  var usuario = 0;
+
+  function autenticar() {
     var login = input_login.value;
     var senha = input_senha.value;
     var dadoPessoal = input_dadoPessoal.value;
 
-        if (tentativas == 0 && usuario == 'bloqueado') {
-            div_mensagem.innerHTML = 'Usuário BLOQUEADO! Procure seu gerente!';
-        }
-        else if(login == 'ana' && senha == 'braga' && (dadoPessoal == '1949' || dadoPessoal == 'louro josé')){
-            div_mensagem.innerHTML = 'Usuário autenticado';
-            tentativas = 3;
-        } else {
-            tentativas -= 1;
-            div_mensagem.innerHTML = `Você ainda tem ${tentativas} tentativa(s)`;
-        } if (tentativas == 0) {
-            usuario = 'bloqueado';
-        }
+    if (tentativas == 1 && usuario == "bloqueado") {
+      div_mensagem.innerHTML = "Usuário BLOQUEADO! Procure seu gerente!";
+    } else if (
+      login == "ana" &&
+      senha == "braga" &&
+      (dadoPessoal == "1949" || dadoPessoal == "louro josé")
+    ) {
+      div_mensagem.innerHTML = "Usuário autenticado";
+      tentativas = 3;
+    } else {
+      tentativas -= 1;
+      div_mensagem.innerHTML = `Você ainda tem ${tentativas} tentativa(s)`;
     }
+    if (tentativas == 1) {
+      usuario = "bloqueado";
+    }
+  }
 </script>
