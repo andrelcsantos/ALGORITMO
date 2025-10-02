@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Palavra Secreta</h1>
+    Insira letras <br />
+    <input type="text" id="input_letrasUsuario">
+    <button onclick="verificarLetras()">Verificar Letras</button>
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  var palavraSecreta = 'filantropo';
+  function verificarLetras() {
+    var letrasUsuario = input_letrasUsuario.value.toLowerCase;
+  
+  if(palavraSecreta.includes(letrasUsuario)){
+    div_mensagem.innerHTML = `A letra ${letrasUsuario} aparece na palavra secreta!`
+  } else {
+    div_mensagem.innerHTML = `A letra ${letrasUsuario} não aparece na palavra secreta!`
+  }
+}
+</script>

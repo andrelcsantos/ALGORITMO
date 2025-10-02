@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Observador de Índices</h1>
+    Insira uma frase <br />
+    <input oninput="posicoesLetras()"= "text" id="input_frase"> <br>
+    Posição do caractere da Frase <br>
+    <input oninput="posicoesLetras()"= "text" id="input_posicao">
+
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function posicoesLetras() {
+    var frase = input_frase.value;
+    var posicao = input_posicao.value;
+    div_mensagem.innerHTML = `    
+    A primeira letra é: ${frase[0]} <br>
+
+    A ${posicao}ª letra é: ${frase[posicao - 1]} <br>
+
+    A última letra é: ${frase[frase.length - 1]}`
+}
+</script>

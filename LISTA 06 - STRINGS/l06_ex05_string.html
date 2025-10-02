@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Substituidor de Caracteres</h1>
+    Insira uma senha <br />
+    <input oninput="modificarLetras()" ="text" id="input_senha"><br>
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function modificarLetras() {
+    var senhaAlterada = input_senha.value;
+    div_mensagem.innerHTML = `${senhaAlterada.replaceAll('a', '@').replaceAll('A', '@').replaceAll('e', '3').replaceAll('E', '3')}`
+}
+</script>

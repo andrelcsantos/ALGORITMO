@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Senha Forte ou Fraca</h1>
+    Insira uma senha <br />
+    <input oninput="validandoSenha()"= "text" id="input_senha"> <br>
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function validandoSenha() {
+    var senha = input_senha.value;
+    div_mensagem.innerHTML = `
+    - A senha deve conter ao menos 8 caracteres.<br>
+    - A senha deve conter 1 letra maiúscula.<br>
+    - A senha deve conter 1 letra minúscula.`
+
+  if(senha.toUpperCase() != senha && senha.toLowerCase() != senha && senha.length > 7){
+    div_mensagem.innerHTML += `<b><br>Senha Forte</b>`
+  } else if ((senha.toUpperCase() != senha && senha.toLowerCase() != senha) || (senha.length > 7 && (senha.toUpperCase() != senha || senha.toLowerCase() != senha))) {
+    div_mensagem.innerHTML += `<b><br>Senha Média</b>`
+  } else if (senha.toUpperCase() != senha || senha.toLowerCase() != senha || senha.length > 7) {
+    div_mensagem.innerHTML += `<b><br>Senha Fraca</b>`
+  } else {
+    div_mensagem.innerHTML += `<b><br>Senha Insegura</b>`
+  }
+}
+</script>

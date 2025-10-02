@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Comparador de Palavras</h1>
+    Insira uma palavra <br />
+    <input type="text" id="input_palavra01"> <br />
+    Insira outra palavra <br>
+    <input type="text" id="input_palavra02"> <br /><br />
+    <button onclick="compararPalavras()">Analisar Palavras</button>
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function compararPalavras() {
+    var palavra01 = input_palavra01.value.trim();
+    var palavra02 = input_palavra02.value.trim();
+
+    if (palavra01.includes(palavra02)) {
+      div_mensagem.innerHTML = `As palavras ${palavra01} e ${palavra02} são exatamente iguais!`;
+    } else if (palavra01.toLowerCase().includes(palavra02.toLowerCase())){
+      div_mensagem.innerHTML = `
+      As palavras ${palavra01} e ${palavra02} possuem o mesmo conteúdo, mas a digitação 
+      é diferente (maiúsculas e minúsculas)`;
+    } else {
+      div_mensagem.innerHTML = `As palavras ${palavra01 } e ${palavra02} são completamente diferentes!`;
+   }
+}
+</script>
