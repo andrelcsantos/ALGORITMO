@@ -18,26 +18,26 @@
 <script>
   var listaFrutas = [];
   function adicionar() {
-    var fruta = input_frutas.values;
-    var tamanhoLista = listaFrutas.length;
+    var fruta = input_fruta.value;
+    var tamanhoLista = listaFrutas.length + 1;
 
-    listaFrutas.push(frutas);
+    listaFrutas.push(fruta);
 
-    div_mensagem.innerHTML += `
-    <br>Lista:${listaFrutas}<br>
-    Tamanho:${tamanhoLista}`;
+    div_mensagem.innerHTML = `
+    <br>Lista: ${listaFrutas}<br>
+    Tamanho: ${tamanhoLista}`;
 
-    input_frutas.value = "";
-    input_frutas.focus;
+    input_fruta.value = "";
+    input_fruta.focus;
   }
 
   function pesquisar() {
-    var pesquisa = input_pesquisa.value;
+    var pesquisa = input_pesquisa.value.trim();
 
     if (listaFrutas.includes(pesquisa.toLowerCase())) {
-      div_mensagem.innerHTML = `A fruta ${pesquisa} existe na lista`;
+      div_mensagem.innerHTML += `<br>A fruta ${pesquisa} existe na lista`;
     } else {
-      div_mensagem.innerHTML = `A fruta ${pesquisa} NÃO existe na lista`;
+      div_mensagem.innerHTML += `<br>A fruta ${pesquisa} NÃO existe na lista`;
     }
   }
 </script>
