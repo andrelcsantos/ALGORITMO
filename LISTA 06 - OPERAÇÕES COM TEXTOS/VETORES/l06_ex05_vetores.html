@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Seus Filmes em Destaque</h1>
+    Insira um por vez seus filmes preferidos <br>
+    <input type="text" id="input_filme"><br>
+    <button onclick="cadastrarFilme()">Cadastrar Filme</button>
+    
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    var listaFilmes = [];
+
+    function cadastrarFilme() {
+        var filme = input_filme.value;
+        listaFilmes.push(filme);
+        input_filme.value = "";
+
+        if(listaFilmes.length > 2){
+        div_mensagem.innerHTML = ` 
+        Seu filme favorito: ${listaFilmes[0]}<br>
+        Seu 3º filme favorito: ${listaFilmes[2]} <br>
+        Total de filmes cadastrados: ${listaFilmes.length}`;
+    } else {
+        div_mensagem.innerHTML = ` 
+        Seu filme favorito: ${listaFilmes[0]}<br>
+        Seu 3º filme favorito: Ainda não existe <br>
+        Total de filmes cadastrados: ${listaFilmes.length}`;
+    }
+}
+</script>

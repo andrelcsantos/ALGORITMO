@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Onde você já viveu?</h1>
+    Insira bairros que você ja morou
+    <input type="text" id="input_bairro">
+    <button onclick="cadastrarBairro()">Cadastrar bairro</button>
+    <br><br>
+
+    Relembrar moradia
+    <input type="number" id="input_numero">
+    <button onclick="relembrarMoradia()">Relembrar moradia</button>
+    
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    var listaBairro = [];
+
+    function cadastrarBairro() {
+        var bairro = input_bairro.value;
+        listaBairro.push(bairro);
+        input_bairro.value = "";
+        div_mensagem.innerHTML = listaBairro.length
+}
+
+    function relembrarMoradia() {
+        var numeroBairro = Number(input_numero.value) - 1;
+        if (numeroBairro >= 0 && numeroBairro < listaBairro.length) {
+            div_mensagem.innerHTML = listaBairro[numeroBairro];
+        } else {
+            div_mensagem.innerHTML = `Você ainda não morou num ${numeroBairro + 1}º bairro!`;
+        }
+}
+</script>

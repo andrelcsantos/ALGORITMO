@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Top Filmes Favoritos</h1>
+    Insira em ordem seus filmes preferidos
+    <input type="text" id="input_filme"><br>
+    <button onclick="cadastrarFilme()">Cadastrar Filme</button>
+    <button onclick="exibirFilmes()">Ver Favoritos</button>
+    
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    var listaFilmes = [];
+
+    function cadastrarFilme() {
+        var filme = input_filme.value;
+        listaFilmes.push(filme);
+        input_filme.value = "";
+}
+
+    function exibirFilmes() {
+        div_mensagem.innerHTML = `
+        ${listaFilmes} <br>
+        Total: ${listaFilmes.length} <br>
+        O filme que você mais gosta é: ${listaFilmes[0]} <br>
+        E o que menos gosta é: ${listaFilmes[listaFilmes.length - 1]}`;
+}
+</script>

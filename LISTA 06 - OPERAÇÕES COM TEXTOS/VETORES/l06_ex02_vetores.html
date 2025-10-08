@@ -8,7 +8,7 @@
 <body>
     <h1>Diário de viagem</h1>
     Destino de viagem <br>
-    <input type="text" id="input_destinoViagem">
+    <input type="text" id="input_destinoViagem"> <br>
 
     <button onclick="adicionarDestino()">Adicionar</button>
     <button onclick="primeiraViagem()">Primeira viagem</button>
@@ -20,20 +20,35 @@
 </html>
 
 <script>
-    var destino = 0;
-    function adicionarDestino() {
-        destino = input_destinoViagem.value;
-        var listaDestino = [];
+    var listaDestino = [];
 
+    function adicionarDestino() {
+        var destino = input_destinoViagem.value;
         listaDestino.push(destino);
-    }
+        input_destinoViagem.value = "";
+}
 
     function primeiraViagem() {
-        if(destino[0] == 'undefined') {
-            div_mensagem.innerHTML = 'Ainda não viajou'
+        if (listaDestino.length == 0) {
+            div_mensagem.innerHTML = 'Ainda não viajou';
         } else {
-            div_mensagem.innerHTML = `${destino[0]}`;
+            div_mensagem.innerHTML = listaDestino[0];
         }
-    }
+}
 
+    function terceiraViagem() {
+        if (listaDestino.length < 3) {
+            div_mensagem.innerHTML = 'Ainda não fez a terceira viagem';
+        } else {
+            div_mensagem.innerHTML = listaDestino[2];
+        }
+}
+
+    function ultimaViagem() {
+        if (listaDestino.length == 0) {
+            div_mensagem.innerHTML = 'Ainda não viajou';
+        } else {
+            div_mensagem.innerHTML = listaDestino[listaDestino.length - 1];
+        }
+}
 </script>
