@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Expressar amor</h1>
+    Insira o nome da pessoa que você mais ama <br>
+    <input type="text" id="input_pessoaAmada"> <br> <br>
+    Insira em número o quanto você ama essa pessoa <br>
+    <input type="number" id="input_nivelAmor"> <br>
+    <button onclick="amor()">Expressar amor</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function amor(){
+        var repeticao = 0;
+        var frase = '';
+        var pessoaAmada = input_pessoaAmada.value;
+        var nivelAmor = Number(input_nivelAmor.value);
+    while (repeticao < nivelAmor){
+        repeticao++;
+        frase += `${repeticao}.${pessoaAmada}, eu te amo! Sempre lembre disso<br>`;
+        }
+
+        div_mensagem.innerHTML = frase;
+    }
+</script>
