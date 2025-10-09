@@ -1,33 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Pares no Intervalo</h1>
     Insira um valor numérico
     <input type="number" id="input_valor">
-    <button onclick="amar()">Filtrar números Cabalísticos</button>
+    <button onclick="numerosPares()">S2 Pares</button>
     <div id="div_mensagem"></div>
 </body>
+
 </html>
 
 <script>
-    function amar(){
-        var incio = Number(input_inicio.value);
-        var fim = Number(input_fim.value);
+    function numerosPares() {
+        var valor = Number(input_valor.value);
         var cont = 0;
         var mensagem = "";
-        
-        while (cont <= fim){
-            var restoDivisao = cont % 2;
-            cont ++;
-            mensagem += `${cont}<br>`
-            cont +=2;
+
+        while (cont < valor) {
+            cont++;
+            if (cont % 2 == 0) {
+                mensagem += `${cont}<br>`
+            }
         }
         div_mensagem.innerHTML = mensagem;
     }
-        
+
 </script>
