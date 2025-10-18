@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Divisibilidade</h1>
+    <h3>Inserindo um intervalo crescente de valor numérico</h3>
+    Valor do início <br>
+    <input type="number" id="input_n1"><br><br>
+    Valor do final <br>
+    <input type="number" id="input_n2"> <br><br>
+    
+    <h3>Escolha um número para ser divisível pelo o intervalo inserido</h3>
+    <select id="selecao_divisivel">
+        <option selected disabled value ="#">Selecione uma opção</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+    </select> <br><br>
+    
+    <button onclick="validarDivisiveis()">Divisível</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function validarDivisiveis() {
+        var n1 = Number(input_n1.value);
+        var n2 = Number(input_n2.value);
+        var divisivel = Number(selecao_divisivel.value);
+        var mensagem = '';
+        var i = n1;
+
+        while (i <= n2){
+            var numDivisiveis = i % divisivel;
+
+            if(numDivisiveis != 0) {
+                mensagem += `${i}<br>` 
+            }
+            i++;
+        }
+        div_mensagem.innerHTML = `
+        Os seguintes numeros do intervalo não divisíveis por ${divisivel}<br>
+        ${mensagem}`
+    }
+</script>

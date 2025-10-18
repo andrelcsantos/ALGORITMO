@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Números Primos</h1>
+    Informe um número <br>
+    <input oninput="verificarDivisores()" type="number" id="input_numero"> <br><br>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificarDivisores() {
+        var i = 1;
+        var numeroInserido = Number(input_numero.value);
+        var mensagem = '';
+        var contagemNumeroPrimo = 0;
+        var numeroPrimo = false;
+
+        while (i <= numeroInserido) {
+            var divisivel = numeroInserido % i;
+            
+            if(divisivel == 0) {
+                contagemNumeroPrimo ++; 
+                mensagem += `${i}<br><br>`
+            }
+            i++
+        }
+
+        if (contagemNumeroPrimo == 2) {
+                mensagem += `
+                O número ${numeroInserido} é um número primo.`
+                numeroPrimo = true
+                
+            }
+        
+            if (numeroPrimo == false && numeroInserido >= 1) {
+                mensagem += `O número ${numeroInserido} não é um número primo.`
+            }
+
+        if(numeroInserido != 'undefined' && numeroInserido >= 1) {
+            div_mensagem.innerHTML = `Divisores do Número ${numeroInserido}:<br><br>${mensagem}`
+    } else {
+        div_mensagem.innerHTML = '';
+    }
+}
+</script>

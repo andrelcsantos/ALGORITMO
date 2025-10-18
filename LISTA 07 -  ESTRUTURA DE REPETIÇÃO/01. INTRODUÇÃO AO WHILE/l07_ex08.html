@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Inisra um valor entre 20 a 100
+    <input type="number" id="input_valor">
+    <button onclick="multiplosDe5()">Adoro multiplos de 5</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function multiplosDe5(){
+        var cont = 0;
+        var mensagem = "";
+        var valorUsuario = Number(input_valor.value);
+
+        while (cont < valorUsuario) {
+            cont ++;
+            if(cont % 5 == 0){
+                mensagem += `${cont} <br>`
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+        
+</script>

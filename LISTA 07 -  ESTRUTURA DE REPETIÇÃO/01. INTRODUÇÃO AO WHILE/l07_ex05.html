@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Corrida de Voltas</h1>
+    Quantas voltas o carro dará na corrida? <br>
+    <input type="text" id="input_qtVoltas"> <br> <br>
+    <button onclick="voltasCarro()">Iniciar corrida!</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function voltasCarro(){
+        var repeticao = 0;
+        var frase = '';
+        var qtVoltas = Number(input_qtVoltas.value);
+        
+    while (repeticao < qtVoltas){
+        repeticao++;
+        frase += `Carro dando a ${repeticao}ª Volta<br>`;
+        }
+
+        div_mensagem.innerHTML = frase + "Corrida finalizada!";
+    }
+</script>

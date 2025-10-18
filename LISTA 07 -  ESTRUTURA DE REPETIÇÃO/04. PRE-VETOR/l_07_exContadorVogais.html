@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Codificador Maluco</h1>
+    Insira uma palavra ou uma frase <br>
+    <input type="text" id="input_textoUsuario"><br><br>
+
+    <button onclick="editarTexto()">Codificar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function editarTexto() {
+        var textoUsuario = input_textoUsuario.value.toLowerCase();
+        textoUsuario = textoUsuario.trim();
+        var textoTamanho = textoUsuario.length;
+        var verificandoParidade = textoTamanho % 2;
+        var i = 0;
+        var textoEditado = '';
+
+
+        while(i < textoTamanho) {
+            var letra = textoUsuario[i];
+
+            if (letra == 'a'){
+                textoEditado += '1';
+            } 
+            else if (letra == 'e'){
+                textoEditado += '2';
+            }
+            else if (letra == 'i'){
+                textoEditado += '3';
+            }
+            else if (letra == 'o'){
+                textoEditado += '4';
+            }
+            else if (letra == 'u'){
+                textoEditado += '5';
+            }
+            else {
+                textoEditado += letra;
+            }
+
+            i++;
+        }
+
+        if(verificandoParidade == 0) {
+            textoEditado += ' #par';
+        } else {
+            textoEditado += ' #impar';
+        }
+
+        div_mensagem.innerHTML = textoEditado;
+
+    }
+</script>

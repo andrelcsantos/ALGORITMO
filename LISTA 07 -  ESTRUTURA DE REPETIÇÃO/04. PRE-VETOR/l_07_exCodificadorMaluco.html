@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contador de Vogais</h1>
+    Insira uma palavra ou uma frase <br>
+    <input type="text" id="input_textoUsuario"><br><br>
+
+    <button onclick="analisarVogais()">Contar Vogais</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisarVogais() {
+        var textoInserido = input_textoUsuario.value.toLowerCase();
+        textoInserido = textoInserido.trim();
+        var tamanhoTexto = textoInserido.length;
+        var qtVogais = 0;
+        var i = 0;
+
+        while (i < tamanhoTexto) {
+            var letra = textoInserido[i];
+            if(letra == 'a' || letra == 'e' || letra == 'i' || letra == 'o' || letra == 'u'){
+                qtVogais++;
+            }
+            i++
+        }
+        div_mensagem.innerHTML = `A frase possui um total de ${tamanhoTexto} letras e ${qtVogais} vogais.<br>`
+
+        if(textoInserido.endsWith('!')){
+            div_mensagem.innerHTML += 'A frase é uma afirmação!'
+        }
+
+        if(textoInserido.endsWith('?')){
+            div_mensagem.innerHTML += 'A frase é uma pergunta!'
+        }
+
+
+    }
+</script>

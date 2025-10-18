@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>É tri/penta!</h1>
+        Informe o valor que vai inciar o intervalo <br>
+        <input type="number" id="input_intervalo1"><br><br>
+        Informe o valor que vai encerrar o intervalo <br>
+        <input type="number" id="input_intervalo2"><br><br>
+
+        <button onclick="validarMultiplo()">Curto 3 e 5!</button>
+        <div id="div_mensagem"></div>
+    </body>
+    </html>
+<script>
+
+    function validarMultiplo() {
+        var mensagem ='';
+        var n1 = Number(input_intervalo1.value);
+        var n2 = Number(input_intervalo2.value);
+        var i = n1;
+        
+        while(i <= n2){
+            var multiploDe3 = i % 3;
+            var multiploDe5 = i % 5;
+            
+            if(multiploDe3 == 0 && multiploDe5 == 0){
+                mensagem += `É TRI!É PENTA!<br>`;
+            } else if (multiploDe3 == 0) {
+                mensagem += `É TRI!<br>`;
+            } else if (multiploDe5 == 0){
+                mensagem += `É PENTA!<br>`;
+            } else {
+                mensagem += `${i}<br>`;
+            }
+            i++;
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

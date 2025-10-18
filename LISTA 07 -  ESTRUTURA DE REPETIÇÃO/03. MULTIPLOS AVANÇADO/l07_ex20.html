@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Divisibilidade</h1>
+    Insira um número entre 10 e 500 <br>
+    <input type="number" id="input_numeroUsuario"> <br><br>
+
+    <button onclick="exibirValores()">Somar Pares</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibirValores() {
+        var i = 1;
+        var mensagem = '';
+        var valorUsuario = Number(input_numeroUsuario.value);
+        var somaTotal = 0;
+
+        if(valorUsuario < 10 || valorUsuario > 500) {
+            alert("Valor inserido esta fora do critério solicitado")
+        } else {
+            while (i < valorUsuario) {
+            var numeroPar = i % 2;
+            
+            if(numeroPar == 0) {
+                mensagem += `${i}<br>`
+                somaTotal += i;
+            }
+            i++;
+        }
+        div_mensagem.innerHTML =` 
+        ${mensagem}
+        ${valorUsuario} <br> 
+        Soma dos pares: ${somaTotal + valorUsuario}`;
+    }
+}
+</script>

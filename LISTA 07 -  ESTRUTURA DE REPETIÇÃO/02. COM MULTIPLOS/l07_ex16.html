@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Um elefante, incomoda muita gente...</h1>
+    Insira a quantidade de elefantes <br>
+    <input type="number" id="input_qtElefantes"><br><br>
+
+    <button onclick="exibirMensagens()">Atazanar a médium</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function exibirMensagens(){
+        var i = 1;
+        var mensagem = '';
+        var mensagemAcumulativa = 'incomodam';
+        var elefantes = Number(input_qtElefantes.value);
+
+        while(i < elefantes){
+            i++;
+            mensagem += `
+            1 elefante incomoda muita gente!<br>
+            ${i} elefantes, ${mensagemAcumulativa}, incomodam, muito mais!<br><br>`
+
+            mensagemAcumulativa += ', incomodam';
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

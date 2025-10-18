@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Divisibilidade</h1>
+    Insira um número para ser o limite da contagem <br>
+    <input type="number" id="input_limiteContagem"> <br><br>
+    Insira um número para ser o divisível <br>
+    <input type="number" id="input_numeroDivisivel"> <br><br>
+
+    <button onclick="exibirMultiplos()">Somar Números</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function exibirMultiplos() {
+        var mensagem = '';
+        var contagem = Number(input_limiteContagem.value);
+        var divisivel = Number(input_numeroDivisivel.value);
+        var i = 1;
+        var somarMultiplos = 0;
+
+        if (divisivel < 1 || divisivel > contagem) {
+            alert("O segundo número deve estar entre 1 e o limite da contagem!");
+            div_mensagem.innerHTML = '';
+        } else{
+
+        while (i <= contagem){
+            var validarDivisivel = divisivel % i;
+            
+            if (validarDivisivel == 0){
+                mensagem += `${i} <br>`
+                somarMultiplos += i;
+            }
+            i ++;
+        }
+        div_mensagem.innerHTML = `
+        ${mensagem}
+        Soma dos Múltiplos: ${somarMultiplos}`;
+        } 
+    }
+</script>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contagem Simples</h1>
+    Insira o número que será o início da contagem <br>
+    <input type="number" id="input_numeroInicio"> <br><br>
+    Insira o número que será o fim da contagem <br>
+    <input type="number" id="input_numeroFim"> <br><br>
+    Insira um número para ser divisível <br>
+    <input type="number" id="input_numeroDivisivel"><br><br>
+
+    <button onclick="exibirContagem()">Contar</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibirContagem() {
+        var numInicio = Number(input_numeroInicio.value);
+        var numFinal = Number(input_numeroFim.value);
+        var numDivisivel = Number(input_numeroDivisivel.value);
+        var i = numInicio;
+        var mensagem = '';
+        var somaTotal = 0;
+        var qtNumeros = 0;
+        var menorNumero = 0;
+        var maiorNumero = 0;
+
+        if((numInicio < 1) || (numFinal >= 100) || (numInicio >= numFinal) || (numDivisivel < 3 || numDivisivel > 10)) {
+            if(numInicio < 1) {
+                alert('Número inicial da contagem não pode ser menor que "1"');
+            } else if (numFinal >= 100) {
+                alert('Número final tem que ser menor que "100"');
+            } else if (numInicio >= numFinal) {
+                alert('Número inicial não pode ser maior que o número final');
+            } else if (numDivisivel < 3 || numDivisivel > 10){
+                alert('O número divisível precisa estar entre "3" e "10"');
+            } 
+            
+            } else {
+            while(i <= numFinal){
+                var verificarDivisiveis = numDivisivel % i;
+                
+                if(verificarDivisiveis == 0) {
+                    mensagem += `, ${i}`
+                    somaTotal += i;
+                    qtNumeros++;
+
+                    if(qtNumeros == 1) {
+                        menorNumero = i;
+                        mensagem = i;
+                    } else {
+                        maiorNumero = i;
+                    }
+                }
+
+                i++;
+            } 
+            var mediaNumeros = somaTotal / qtNumeros;
+            mensagem += `
+            <br><br>
+            QUANTIDADE TOTAL DE NÚMEROS EXIBIDOS: ${qtNumeros}<br><br> 
+
+            SOMATÓRIO DOS NÚMEROS EXIBIDOS: ${somaTotal} <br><br>
+
+            MÉDIA DOS NÚMEROS EXIBIDOS: ${mediaNumeros} <br><br> 
+
+            MAIOR NÚMERO EXIBIDO: ${maiorNumero} <br><br> 
+
+            MENOR NÚMERO EXIBIDO: ${menorNumero} `
+        }
+    div_mensagem.innerHTML = mensagem;
+    }
+</script>

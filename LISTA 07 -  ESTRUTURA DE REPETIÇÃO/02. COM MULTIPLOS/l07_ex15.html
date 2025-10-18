@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+
+    <body>
+        <h1>Treino de Musculação</h1>
+        Informe de quantos em quantos dias você treina<br>
+        <input type="number" id="input_diasTreino"><br><br>
+
+        <button onclick="validarDiasDeTreino()">Exibir rotina mensal</button>
+        <div id="div_mensagem"></div>
+    </body>
+    </html>
+<script>
+
+    function validarDiasDeTreino() {
+        var mensagem ='';
+        var treino = Number(input_diasTreino.value);
+        var i = 0;
+        
+        while(i < 30){
+            var diasDeTreino = i % treino;
+            i++;
+            
+            if(diasDeTreino == 0){
+                mensagem += `Dia ${i} - Musculação<br>`;
+            } else {
+                mensagem += `Dia ${i} - Comer, dormir etc<br>`
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

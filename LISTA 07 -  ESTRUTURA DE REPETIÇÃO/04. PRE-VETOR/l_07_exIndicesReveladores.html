@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Indices Reveladores</h1>
+    Insira uma palavra ou uma frase <br>
+    <input type="text" id="input_textoUsuario"><br><br>
+
+    Insira uma letra <br>
+    <input type="text" id="input_letra"> <br><br>
+
+    <button onclick="analisarTexto()">Revelar Índiceis</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function analisarTexto() {
+        var textoInserido = input_textoUsuario.value.toLowerCase();
+        var letraEscolhida = input_letra.value.toLowerCase();
+        textoInserido = textoInserido.trim();
+        var tamanhoTexto = textoInserido.length;
+        var qtLetraEscolhida = 0;
+        var posicoesLetra = '';
+        var i = 1;
+        
+        while (i <= tamanhoTexto) {
+            var letra = textoInserido[i - 1];
+            if(letra == letraEscolhida){
+                qtLetraEscolhida++;
+
+                if(qtLetraEscolhida == 1) {
+                posicoesLetra += `${i}`
+                } else {
+                    posicoesLetra += `, ${i}`
+                }
+            }
+            i++
+        }
+        div_mensagem.innerHTML = `
+        A letra "${letraEscolhida}"<br>
+        aparece nas posições: ${posicoesLetra}.<br>
+        e aparece ${qtLetraEscolhida}X`
+
+        if(qtLetraEscolhida == 0) {
+            div_mensagem.innerHTML = "Essa letra está em outro universo!";
+        }
+
+    }
+</script>

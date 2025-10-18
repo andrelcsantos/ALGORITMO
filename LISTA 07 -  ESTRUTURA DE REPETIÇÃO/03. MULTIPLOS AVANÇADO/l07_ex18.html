@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Divisores</h1>
+    Insira um valor entre 0 e 100 <br>
+    <input type="number" id="input_valorUsuario"><br><br>
+
+    <button onclick="exibirDivisores()">Ver Divisores</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibirDivisores() {
+        
+        var mensagem = '';
+        var i = 1;
+        var numUsuario = Number(input_valorUsuario.value);
+
+        while (i <= numUsuario) {
+            var validarDivisores = numUsuario % i;
+
+            if(validarDivisores == 0){
+                mensagem += `${i} <br><br>`;
+            }
+            i ++;
+        }
+        div_mensagem.innerHTML = `
+        Divisores do número ${numUsuario}: <br><br>
+        ${mensagem}`;
+    }
+</script>
