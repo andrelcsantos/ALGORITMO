@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Doceria Gourmet</h1>
+
+    <h3>Macarons</h3>
+    Quantidade <br>
+    <input type="number" id="input_qtMacarons"> <br><br>
+    Preço da unidade<br>
+    <input type="number" id="input_precoMacarons"><br><br>
+
+    <h3>Brigadeiros</h3>
+    Quantidade <br>
+    <input type="number" id="input_qtBrigadeiros"> <br><br>
+    Preço da unidade<br>
+    <input type="number" id="input_precoBrigadeiros"> <br><br>
+
+    <h3>Cupcakes</h3>
+    Quantidade da unidade<br>
+    <input type="number" id="input_qtCupcakes"> <br><br>
+    Preço <br>
+    <input type="number" id="input_precoCupcakes"> <br><br>
+
+    <h3>Cheesecakes</h3>
+    Quantidade <br>
+    <input type="number" id="input_qtCheesecakes"> <br><br>
+    Preço da unidade<br>
+    <input type="number" id="input_precoCheesecakes"> <br><br>
+
+    <button onclick="verificarVendas()">Verificar Vendas</button>
+
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    function verificarVendas() {
+        var qtMacarons = Number(input_qtMacarons.value);
+        var valorMacaron = Number(input_precoMacarons.value);
+        var imgMacaron = `<img src="https://viagem.cnnbrasil.com.br/wp-content/uploads/sites/5/2024/04/Macarons-Jean-Paul-Hevin.jpg?w=849&h=477&crop=0" width="100px">`;
+        var qtBrigadeiros = Number(input_qtBrigadeiros.value);
+        var valorBrigadeiro = Number(input_precoBrigadeiros.value);
+        var imgBrigadeiro = `<img src="https://www.lemebrigadeiros.com.br/wp-content/uploads/2023/09/DSC02667-1.jpg" width="100px">`;
+        var qtCupcakes = Number(input_qtCupcakes.value);
+        var valorCupcake = Number(input_precoCupcakes.value);
+        var imgCupcake = `<img src="https://www.oitedi.com.br/_next/image?url=https%3A%2F%2Ftedi-production.s3.amazonaws.com%2Fcooking_recipes%2Ffood_description%2F18622aa1308c719b20da5b9e2e97f9b0cd7dfe85.png&w=1080&q=70" width="100px">`;
+        var qtCheesecakes = Number(input_qtCheesecakes.value);
+        var valorCheesecake = Number(input_precoCheesecakes.value);
+        var imgCheesecake = `<img src="https://primorsupermercado.com.br/wp-content/uploads/2022/12/Post-para-redes-sociais-nutricionista-receitas-2.png" width="100px">`;
+        var i = 0;
+        var mensagem = '';
+        var valorTotal = 0;
+        var numVenda = 0;
+        
+        if(valorMacaron < 0 || valorBrigadeiro < 0 || valorCupcake < 0 || valorCheesecake < 0) {
+            if(valorMacaron < 0){
+                alert("Erro: O preço do Macaron não pode estar negativo")
+            } 
+            else if (valorBrigadeiro < 0) {
+                alert("Erro: O preço do Brigadeiro não pode estar negativo")
+            }
+            else if (valorCupcake < 0) {
+                alert("Erro: O preço do Cupcake não pode estar negativo")
+            }
+            else {
+                alert("Erro: O preço do Cheesecake não pode estar negativo")
+            }
+
+            div_mensagem.innerHTML = '';
+
+        } else {
+            while(i < qtMacarons) {
+                numVenda++;
+                mensagem += `Venda ${numVenda} - ${imgMacaron} - R$${valorMacaron}<br>`;
+                valorTotal += valorMacaron;
+                i++;
+            }
+            i = 0;
+
+            while(i < qtBrigadeiros) {
+                numVenda++;
+                mensagem += `Venda ${numVenda} - ${imgBrigadeiro} - R$${valorBrigadeiro}<br>`;
+                valorTotal += valorBrigadeiro;
+                i++;
+
+            }
+            i = 0;
+
+            while (i < qtCupcakes) {
+                numVenda++;
+                mensagem += `Venda ${numVenda} - ${imgCupcake} - R$${valorCupcake}<br>`;
+                valorTotal += valorCupcake;
+                i++;
+
+            }
+            i = 0;
+
+            while (i < qtCheesecakes) {
+                numVenda++;
+                mensagem += `Venda ${numVenda} - ${imgCheesecake} - R$${valorCheesecake}<br>`;
+                valorTotal += valorCheesecake;
+                i++;
+
+            }
+            
+        div_mensagem.innerHTML = `
+        ${mensagem} <br>
+        Com a quantidade de ${qtMacarons} Macarons, ${qtBrigadeiros} Brigadeiros, ${qtCupcakes} Cupcakes e ${qtCheesecakes} Cheesecakes, a venda totalizará R$${valorTotal.toFixed(2)}`
+
+        }
+    }
+</script>

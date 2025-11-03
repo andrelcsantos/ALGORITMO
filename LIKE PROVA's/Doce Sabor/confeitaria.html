@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Doce Sabor - Controle de Qualidade</h1>
+    Nome do bolo produzido. <br>
+    <input type="text" value="Bolo de Morango" id="input_nomeBolo"><br><br>
+    Quantidade de bolos produzidos do dia <br>
+    <input type="number" value="30" id="input_bolosProduzidos"><br><br>
+    Quantidade de bolos com defeitos do dia <br>
+    <input type="number" value="20" id="input_bolosComDefeitos"><br><br>
+    Peso total de farinha utilizada no dia (kg) <br>
+    <input type="number" value="8" id="input_qtFarinha"><br><br>
+    Tempo total gasto na produção <br>
+    <input type="number" value="50" id="input_tempoProducao"><br><br>
+
+    <button onclick="analisarProducao()">Analisar Produção</button>
+    <div id="div_mensagem"></div>
+    
+</body>
+</html>
+
+<script>
+    function analisarProducao() {
+        var bolo = input_nomeBolo.value;
+        var qtBolos = Number(input_bolosProduzidos.value);
+        var BolosDefeituosos  = Number(input_bolosComDefeitos.value);
+        var qtFarinha = Number(input_qtFarinha.value);
+        var tempoProducao = Number(input_tempoProducao.value);
+        var mensagem = '';
+
+        if(bolo == '' || qtBolos < 5 || BolosDefeituosos > qtBolos || qtFarinha <= 0 || tempoProducao <= 15) {
+          mensagem = 'Erro de preenchimento! Verifique as informações e confirme:<br>'
+
+            if(bolo == '') {
+                mensagem +=  'O nome do bolo deve estar preenchido.<br>'
+            } 
+            if (qtBolos < 5) {
+                mensagem += 'A quantidade total de bolos produzidos deve ser no mínimo 5.<br>'
+            }
+            if (BolosDefeituosos > qtBolos) {
+                mensagem += 'A quantidade máxima de bolos defeituosos deve ser igual ou menor ao total produzido.<br>'
+            }
+            if (qtFarinha <= 0) {
+                mensagem += 'O peso da farinha deve ser maior que 0.<br>'
+            } 
+            if (tempoProducao <= 15) {
+                mensagem += 'O tempo total gasto na produção deve ser maior que 15 minutos.'
+            }
+        } else {
+            var qtBolosValidos = qtBolos - BolosDefeituosos;
+            var eficienciaPorcentagem = (qtBolosValidos / qtBolos) * 100;
+            var mediaFarinha = qtFarinha / qtBolos;
+            var farinhaPerdida = mediaFarinha * BolosDefeituosos;
+            var tempoMedioBolo = tempoProducao / qtBolos;
+            var nivelProducao = '';
+
+            if (eficienciaPorcentagem < 75) {
+                nivelProducao = 'Produção abaixo do ideal – necessário revisar o processo de preparo.';
+            } else if (eficienciaPorcentagem >= 75 && eficienciaPorcentagem <= 90) {
+                nivelProducao = 'Produção boa – rendimento dentro do esperado.';
+            } else {
+                nivelProducao = 'Produção excelente – ótimo desempenho da equipe.';
+                if(mediaFarinha < 0.8 && tempoMedioBolo < 20) {
+                    nivelProducao += '<br>Processo otimizado – excelente aproveitamento de tempo e ingredientes.'
+                }
+            }
+            var texto = 'Dias para a projeção de eficiência';
+            var eficienciaEstimada = Number(prompt(texto));
+
+            while (eficienciaEstimada <= 0 || isNaN(eficienciaEstimada)) {
+                eficienciaEstimada = Number(prompt('Projeção inválida! A quantidade de dias deve ser maior que 0!'));
+            }
+            
+            var mensagem2 = '';
+            var eficienciaPrevista = eficienciaPorcentagem;
+
+            for(var i = 1;i <= eficienciaEstimada; i++){
+                var tipoDePorcentagem = i % 3;
+
+                if(eficienciaPrevista >= 98) {
+                    mensagem2 += `Dia ${i} - Eficiência estimada: 100% <br>`;
+                } else {
+                    if(tipoDePorcentagem == 0){
+                        eficienciaPrevista += 2.5;
+                        mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista}%<br>`;
+
+                } else {
+                    eficienciaPrevista += 2;
+                    mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista}%<br>`;
+                }
+            }
+        }
+
+            mensagem = `
+        <h3>ANÁLISE DA PRODUÇÃO</h3>
+        Bolo: ${bolo} <br>
+        Produzidos: ${qtBolos} | Defeituosos: ${BolosDefeituosos} <br>
+        Bolos Válidos: ${qtBolosValidos} | Eficiência: ${eficienciaPorcentagem}% <br>
+        Farinha Total: ${qtFarinha} kg | Média de Farinha por Bolo: ${mediaFarinha} kg <br>
+        Total de Farinha Desperdiçada: ${farinhaPerdida} kg <br>
+        Tempo Total: ${tempoProducao} min | Tempo Médio por Bolo: ${tempoMedioBolo} min <br><br> 
+        ${nivelProducao}`
+        }
+
+        div_mensagem.innerHTML = `
+        ${mensagem}<br><br>
+        <h3>PROJEÇÃO DE EFICIÊNCIA: ${eficienciaEstimada} dias</h3>
+        ${mensagem2}
+        `;
+    }
+</script>
