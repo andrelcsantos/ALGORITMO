@@ -10,9 +10,9 @@
     Nome do bolo produzido. <br>
     <input type="text" value="Bolo de Morango" id="input_nomeBolo"><br><br>
     Quantidade de bolos produzidos do dia <br>
-    <input type="number" value="30" id="input_bolosProduzidos"><br><br>
+    <input type="number" value="10" id="input_bolosProduzidos"><br><br>
     Quantidade de bolos com defeitos do dia <br>
-    <input type="number" value="20" id="input_bolosComDefeitos"><br><br>
+    <input type="number" value="2" id="input_bolosComDefeitos"><br><br>
     Peso total de farinha utilizada no dia (kg) <br>
     <input type="number" value="8" id="input_qtFarinha"><br><br>
     Tempo total gasto na produção <br>
@@ -32,6 +32,7 @@
         var qtFarinha = Number(input_qtFarinha.value);
         var tempoProducao = Number(input_tempoProducao.value);
         var mensagem = '';
+        var validacao = false;
 
         if(bolo == '' || qtBolos < 5 || BolosDefeituosos > qtBolos || qtFarinha <= 0 || tempoProducao <= 15) {
           mensagem = 'Erro de preenchimento! Verifique as informações e confirme:<br>'
@@ -52,6 +53,7 @@
                 mensagem += 'O tempo total gasto na produção deve ser maior que 15 minutos.'
             }
         } else {
+            validacao = true;
             var qtBolosValidos = qtBolos - BolosDefeituosos;
             var eficienciaPorcentagem = (qtBolosValidos / qtBolos) * 100;
             var mediaFarinha = qtFarinha / qtBolos;
@@ -87,11 +89,11 @@
                 } else {
                     if(tipoDePorcentagem == 0){
                         eficienciaPrevista += 2.5;
-                        mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista}%<br>`;
+                        mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista.toFixed(0)}%<br>`;
 
                 } else {
                     eficienciaPrevista += 2;
-                    mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista}%<br>`;
+                    mensagem2 += `Dia ${i} - Eficiência estimada: ${eficienciaPrevista.toFixed(0)}%<br>`;
                 }
             }
         }
@@ -100,17 +102,20 @@
         <h3>ANÁLISE DA PRODUÇÃO</h3>
         Bolo: ${bolo} <br>
         Produzidos: ${qtBolos} | Defeituosos: ${BolosDefeituosos} <br>
-        Bolos Válidos: ${qtBolosValidos} | Eficiência: ${eficienciaPorcentagem}% <br>
-        Farinha Total: ${qtFarinha} kg | Média de Farinha por Bolo: ${mediaFarinha} kg <br>
-        Total de Farinha Desperdiçada: ${farinhaPerdida} kg <br>
+        Bolos Válidos: ${qtBolosValidos} | Eficiência: ${eficienciaPorcentagem.toFixed()}% <br>
+        Farinha Total: ${qtFarinha} kg | Média de Farinha por Bolo: ${mediaFarinha.toFixed(1)} kg <br>
+        Total de Farinha Desperdiçada: ${farinhaPerdida.toFixed()} kg <br>
         Tempo Total: ${tempoProducao} min | Tempo Médio por Bolo: ${tempoMedioBolo} min <br><br> 
         ${nivelProducao}`
         }
 
+        if (validacao == true) {
         div_mensagem.innerHTML = `
         ${mensagem}<br><br>
         <h3>PROJEÇÃO DE EFICIÊNCIA: ${eficienciaEstimada} dias</h3>
         ${mensagem2}
-        `;
+        `;} else {
+            div_mensagem.innerHTML = mensagem;
+        }
     }
 </script>
