@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Carona Compartilhada</h1>
+    Quantas pessoas vão entrar no carro? <br>
+    <input type="number" id="input_qtPassageiros"> <br>
+    <button onclick="exibirPassageiros()">#Partiu Carona</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function exibirPassageiros() {
+        var qtPassageiros = Number(input_qtPassageiros.value);
+        var mensagem = '';
+        for(var i  = 1; i <= qtPassageiros; i++) {
+            if (i == 1) {
+                mensagem += `Entrou o ${i}º passageiro (que é o(a) motorista) <br>`;
+            } else {
+                if(i <= 5){
+                mensagem += `Entrou o ${i}º passageiro <br>`;
+            } else {
+                mensagem += `O ${i}º passageiro terá que esperar!<br>`
+            }
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

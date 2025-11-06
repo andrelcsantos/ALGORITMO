@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bônus Bancário Inteligente</h1>
+    Informe quantas vezes você deposita no banco<br>
+    <input type="number" id="input_qtDepositos"> <br><br>
+    Informe o valor do deposito <br>
+    <input type="number" id="input_valorDeposito"> <br><br>
+
+    <button onclick="exibirValorFinal()">Acompanhar grana</button> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function exibirValorFinal() {
+        var qtDeposito = Number(input_qtDepositos.value);
+        var valorDeposito = Number(input_valorDeposito.value);
+        var mensagem = '';
+        var somandoValor = 0;
+        var bonus = 0;
+        var validarBonus = 0;
+
+        for(var i = 1; i <= qtDeposito; i++) {
+            validarBonus = i % 3;
+            somandoValor += valorDeposito;
+            if (validarBonus != 0){
+            mensagem += `
+            ${i}º Mês: R$ ${somandoValor.toFixed(2)}<br><br>`
+            } else {
+                bonus = somandoValor * 0.01;
+                somandoValor += bonus;
+                mensagem += `
+                ${i}º Mês: R$ ${somandoValor.toFixed(2)}<br><br>`
+            }
+        }
+        div_mensagem.innerHTML = `
+        ${mensagem}
+        Total guardado: R$${somandoValor.toFixed(2)}`;
+    }
+</script>

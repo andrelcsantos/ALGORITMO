@@ -35,23 +35,13 @@
         var validacao = false;
 
         if(bolo == '' || qtBolos < 5 || BolosDefeituosos > qtBolos || qtFarinha <= 0 || tempoProducao <= 15) {
-          mensagem = 'Erro de preenchimento! Verifique as informações e confirme:<br>'
-
-            if(bolo == '') {
-                mensagem +=  'O nome do bolo deve estar preenchido.<br>'
-            } 
-            if (qtBolos < 5) {
-                mensagem += 'A quantidade total de bolos produzidos deve ser no mínimo 5.<br>'
-            }
-            if (BolosDefeituosos > qtBolos) {
-                mensagem += 'A quantidade máxima de bolos defeituosos deve ser igual ou menor ao total produzido.<br>'
-            }
-            if (qtFarinha <= 0) {
-                mensagem += 'O peso da farinha deve ser maior que 0.<br>'
-            } 
-            if (tempoProducao <= 15) {
-                mensagem += 'O tempo total gasto na produção deve ser maior que 15 minutos.'
-            }
+          mensagem = `
+           Erro de preenchimento! Verifique as informações e confirme:<br>
+           O nome do bolo deve estar preenchido.<br> 
+           A quantidade total de bolos produzidos deve ser no mínimo 5.<br>
+           A quantidade máxima de bolos defeituosos deve ser igual ou menor ao total produzido.<br>
+           O peso da farinha deve ser maior que 0.<br>
+           O tempo total gasto na produção deve ser maior que 15 minutos.`
         } else {
             validacao = true;
             var qtBolosValidos = qtBolos - BolosDefeituosos;

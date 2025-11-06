@@ -1,0 +1,31 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Café com Leite na Medida Certa</h1>
+    Quantas xicaras de café com leite você ja tomou? <br>
+    <input type="number" id="input_qtXicaras"> <br><br>
+    <button onclick="exibirQuantidade()">Ver a quantidade</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibirQuantidade() {
+        var qtXicaras = Number(input_qtXicaras.value);
+        var imgColherDeCafé = `<img src = "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhfWF4-LjFLsjvY7nRQZoAq9H-jzGFHHmM39xLBmu6B5rGIzrER1rEFcu-vNMvz0MnqBZ0gluHXoYAeK_xOinLlazsvPP99fM1D1gt-awD1_mfAEo5BYi5krMTknROMZ-yT13alInTfYn_BnyS2fhYiBjEUmCIOf-IE4xYc7xShVFd2toFIlGyqfGMbGG8t/s650/Colher%20de%20caf%C3%A9.jpg" width = 100px>`;
+        var imgColherDeLeiteEmPo = `<img src = "https://minhasaude.proteste.org.br/wp-content/uploads/2023/06/colher-carregando-punhado-de-leite-em-po-sobre-fundo-branco.jpg" width = 100px >`
+        var mensagem = '';
+
+        for(var i = 1; i <= qtXicaras; i++) {
+            mensagem += `${imgColherDeLeiteEmPo} ${imgColherDeCafé} ${imgColherDeCafé}`
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

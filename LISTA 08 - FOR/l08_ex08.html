@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="verificarNumeros()">FizzBuzz</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function verificarNumeros() {
+        var multipo3 = 0;
+        var multipo5 = 0;
+        var mensagem = '';
+
+        for(var i = 1; i <= 100; i++) {
+            multipo3 = i % 3;
+            multipo5 = i % 5;
+            if(multipo3 == 0 && multipo5 == 0) {
+                mensagem += `FizzBuzz <br>`;
+            } else if (multipo3 == 0) {
+                mensagem += `Fizz <br>`;
+            } else if (multipo5 == 0) {
+                mensagem += `Buzz <br>`
+            } else {
+                mensagem += `${i} <br>`
+            }
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>

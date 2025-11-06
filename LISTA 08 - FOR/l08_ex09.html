@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fases da Vida</h1>
+    Insira sua idade <br>
+    <input type="number" id="input_idade" oninput="exibirIdade()"> <br><br>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    function exibirIdade() {
+        var idade = Number(input_idade.value);
+        var mensagem = '';
+
+        for(var i = 0; i <= idade; i++) {
+            if(idade >= 0 && idade != '') {
+            if(i <= 4) {
+                mensagem += `${i} anos(Primeira Infância)<br>`
+            } else if(i <= 6) {
+                mensagem += `${i} anos(Pré-escolar)<br>`
+            } else if(i <= 10) {
+                mensagem += `${i} anos(Segunda Infância)<br>`
+            } else if(i <= 18) {
+                mensagem += `${i} anos(Adolescência)<br>`
+            } else if(i <= 50) {
+                mensagem += `${i} anos(Adulto)<br>`
+            } else if(i <= 100) {
+                mensagem += `${i} anos(Melhor idade)<br>`
+            } else {
+                mensagem += `${i} anos(Matusalém)<br>`
+            }
+        } 
+    }
+    div_mensagem.innerHTML = mensagem;
+}
+</script>

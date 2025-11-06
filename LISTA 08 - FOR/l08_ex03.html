@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Contador de Coca-Colas</h1>
+    Quantas Coca-Colas você já bebeu na vida? <br>
+    <input type="number" id="input_qtCocaCola"> <br><br>
+    <button onclick="analisarQt()">Ver a quantidade</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    function analisarQt() {
+        var qtCocaCola = Number(input_qtCocaCola.value);
+        var mensagem = '';
+
+        for(var i = 1; i <= qtCocaCola; i++){
+            mensagem += '🥤';
+        }
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
