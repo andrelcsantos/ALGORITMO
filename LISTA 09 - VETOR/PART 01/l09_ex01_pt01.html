@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Caça às Fruta</h1>
+    Digite uma fruta <br>
+    <input type="text" id="input_fruta">
+
+    <button onclick="pesquisarFruta()">Pesquisar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+    var listaFrutas = ['banana', 'maça', 'abacaxi', 'melancia', 'tomate']
+    function pesquisarFruta() {
+        var frutaPesquisada = input_fruta.value.toLowerCase();
+        if(listaFrutas.includes(frutaPesquisada)) {
+            div_mensagem.innerHTML = `A fruta "${frutaPesquisada}" existe na lista.`
+        } else {
+            div_mensagem.innerHTML = `Não existe a fruta "${frutaPesquisada}" na lista.`
+        }
+    }
+</script>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro de Projeto</h1>
+    Insira o nome de cada projeto que você ja criou <br>
+    <input type="text" id="input_projeto"><br>
+    <button onclick="cadastrarProjeto()">Registrar projeto</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+
+<script>
+var listaProjetos = [];
+
+function cadastrarProjeto() {
+    var projeto = input_projeto.value;
+    var mensagem = '';
+    listaProjetos.push(projeto);
+
+    for(var i = 1; i <= listaProjetos.length; i++){
+        mensagem += `${listaProjetos[listaProjetos.length - i]}<br>`;
+    }
+
+    if(listaProjetos.length <= 4) {
+        mensagem += `<br> Você já fez ${listaProjetos.length} projetos. Por isso você é um profissional Júnior!`
+    } else if (listaProjetos.length <= 12) {
+        mensagem += `<br> Você já fez ${listaProjetos.length} projetos. Por isso você é um profissional Pleno!`
+    } else {
+        mensagem += `<br> Você já fez ${listaProjetos.length} projetos. Por isso você é um profissional Sênior!`
+    }
+
+    div_mensagem.innerHTML = mensagem;
+}
+</script>

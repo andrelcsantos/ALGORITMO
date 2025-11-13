@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Registro Linha de Ônibus</h1>
+    Insira as linhas de ônibus que você pegou durante a semana <br>
+    <input type="text" id="input_linhaOnibus"> <br>
+    <button onclick="registrarLinha()">Gravar busão</button> <br><br>
+    
+    Pesquise a quantidade de vezes que você pegou uma linha em específico <br>
+    <input type="text" id="input_pesquisaLinha"><br>
+    <button onclick="pesquisar()">Pesquisar</button> <br> <br>
+    
+    <div id="div_mensagem"></div><br><br>
+    <div id="div_mensagemPesquisa"></div>
+</body>
+</html>
+<script>
+    var lista = [];
+    
+    function registrarLinha() {
+        var linhaOnibus = input_linhaOnibus.value;
+        var mensagem = '';
+        lista.push(linhaOnibus);
+
+        for(var i = 1; i <= lista.length; i++) {
+            mensagem += `${lista[lista.length - i]} <br>`;
+        }
+
+        div_mensagem.innerHTML = mensagem;
+    }
+
+    function pesquisar() {
+        var pesquisa = input_pesquisaLinha.value;
+        var j = 0;
+        var ordem = '';
+        var mensagem = '';
+
+        for(var i = 0; i <= lista.length; i++) {
+            if(pesquisa != lista[i] && j == 0) {
+                if(i == lista.length){
+                mensagem = 'Você nunca pegou essa linha'
+            }
+        }   if(pesquisa == lista[i]) {
+                j += 1;
+                ordem += `${i + 1}`
+                mensagem = `Você já pegou essa linha ${j} vezes, nessa ordem: ${ordem} `;
+                ordem += `, `
+            }
+        }
+        div_mensagemPesquisa.innerHTML = mensagem;
+    }
+</script>

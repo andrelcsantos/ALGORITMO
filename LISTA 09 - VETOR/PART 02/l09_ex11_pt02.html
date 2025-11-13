@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Controle de Estoque</h1>
+    Informe o preço do produto <br>
+    <input type="number" id="input_preco"> <br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="atualizar()">Atualizar Estoque</button>
+
+    <div id="div_mensagem"></div>
+    <div id="div_mensagemTotal"></div>
+
+</body>
+</html>
+
+<script>
+    var listaPrecos = [];
+    
+    function cadastrar() {
+        var preco = Number(input_preco.value);
+      if (preco == "" || preco <= 0) {
+        div_mensagem.innerHTML = "Digite um preço válido!";
+      } else {
+        listaPrecos.push(preco);
+      }
+    }
+
+    function atualizar() {
+      if (listaPrecos.length == 0) {
+        div_mensagem.innerHTML = "Nenhum produto cadastrado.";
+      } else {
+        var mensagem = '';
+        var total = 0;
+        for (var i = listaPrecos.length - 1; i >= 0; i--) {
+          mensagem += `Produto ${i + 1} - R$${listaPrecos[i].toFixed(2)}<br>`;
+          total += listaPrecos[i];
+        }
+        mensagem += `Você tem ${listaPrecos.length} produtos cadastrados em estoque <br>`;
+        mensagem += `Seu estoque vale R$ ${total.toFixed(2)}`;
+        div_mensagem.innerHTML = mensagem;
+      }
+    }
+  </script>

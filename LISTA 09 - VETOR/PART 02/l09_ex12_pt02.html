@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Cadastro de Filhos</h1>
+    Qual é o nome do seu filho? <br>
+    <input type="text" id="input_filho"><br>
+    <button onclick="cadastrar()">Cadastrar</button>
+    <button onclick="exibirQtFilhos()">Atualizar Familia</button>
+
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista = [];
+    var i = 0;
+
+    function cadastrar() {
+        var filho = input_filho.value;
+
+        if(filho == lista[i - 1]) {
+                alert('Não pode mais de 1 filho com o mesmo nome!')
+            } else {
+                lista.push(filho);
+                for(var j = 1; j <= lista.length; j++) {
+                    
+                }
+                i++
+        }
+    }
+
+    function exibirQtFilhos() {
+        var mensagem = '';
+
+        mensagem += `Você tem ${lista.length} filhos <br>
+        Seu custo mensal será aproximadamente R$${lista.length * 3000} se colocá-los em escola particular ou R$${lista.length * 1500} se eles estudarem em escola pública  
+`   
+        div_mensagem.innerHTML = mensagem;
+    }
+</script>
