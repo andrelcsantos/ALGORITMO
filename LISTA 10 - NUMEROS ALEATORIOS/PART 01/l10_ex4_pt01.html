@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button onclick="sortearNota()">Sortear Nota</button>
+
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function sortearNota() {
+    var mensagem = "";
+    var aleatorio = Math.random();
+    var nota = aleatorio * 10 + 1 - 0.99;
+    var numInt = Math.floor(nota);
+    var numDec = nota.toFixed(1);
+
+    if (numInt == numDec) {
+      mensagem = numInt;
+    } else {
+      mensagem = numDec;
+    }
+
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>
