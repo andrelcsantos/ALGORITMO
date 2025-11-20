@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Murphy Cooper</h1>
+    Nome do astronauta <br>
+    <input type="text" id="input_astronauta"> <br><br>
+    Nome do planeta <br>
+    <input type="text" id="input_planeta"> <br><br>
+    Tempo relativo <br>
+    <input type="number" id="input_tempoRelativo"> <br><br>
+    Quantidade de dias da viagem <br>
+    <input type="number" id="input_dias"> <br><br>
+    Quantidade de horas da viagem <br>
+    <input type="number" id="input_horas"> <br><br>
+    Quantidade de minutos de viagem <br>
+    <input type="number" id="input_minutos"> <br><br>
+
+    <button onclick="registrarViagem()">Registrar viagem</button>
+    <button onclick="relatorioViagem()">Relatório de viagem</button>
+    <div id="div_mensagem"></div>
+
+</body>
+</html>
+
+<script>
+    var ast = [];
+    var pla = [];
+    var rel = [];
+    var dias = [];
+    var horas = [];
+    var min = [];
+
+    function registrarViagem() {
+
+        var ast_input = input_astronauta.value;
+        var pla_input = input_planeta.value;
+        var rel_input = Number(input_tempoRelativo.value);
+        var dias_input = Number(input_dias.value);
+        var horas_input = Number(input_horas.value);
+        var min_input = Number(input_minutos.value);
+
+        if(ast_input == '' ||  pla_input == '' || rel_input <= 0 || (dias_input <= 0 && horas_input <= 0 && min_input <= 0)) {
+            alert("Preencha os campos corretamente e informe um tempo de viagem válido!")
+        } else {
+            ast.push(ast_input);
+            pla.push(pla_input);
+            rel.push(rel_input);
+            dias.push(dias_input);
+            horas.push(horas_input);
+            min.push(min_input);
+        }
+    }
+
+    function relatorioViagem() {
+        var diasMin = Number(input_dias.value) * 1440;
+        var horasMin = Number(input_horas.value) * 60;
+        var minTotal = diasMin + horasMin + Number(input_minutos.value);
+        var diasTotal = minTotal / 525600;
+        var qtAst = ast.length;
+        var j = 0;
+        var tempoTotal = 0;
+        var mensagem = '';
+        
+        for(var i = 1; i <= qtAst; i++) {
+            minTotal = `${(dias[j] * 1440) + (horas[j] * 60) + min[j]} `
+            diasTotal = ((minTotal * rel[j]) / 525600);
+            mensagem += `
+            Viagem ${i}:<br>
+            Astronauta ${ast[j]} viajou para o planeta ${pla[j]} e ficou fora por pelo menos ${diasTotal.toFixed(0)} anos no tempo da Terra.<br>
+            `
+
+            if(diasTotal <= 13) {
+                mensagem += `A criança que nasceu quando ele saiu provavelmente está assim hoje:<br> <img src="./img/13Anos.png" width="150px"<br><br><br>`
+            } else if(diasTotal <= 30) {
+                mensagem += `A criança que nasceu quando ele saiu provavelmente está assim hoje:<br> <img src="./img/14 a 30 anos .png" width="150px"<br><br><br>`
+            } else if(diasTotal <= 65) {
+                mensagem += `A criança que nasceu quando ele saiu provavelmente está assim hoje:<br> <img src="./img/31 a 65 anos.png" width="150px"<br><br><br>`
+            } else if(diasTotal <= 100) {
+                mensagem += `A criança que nasceu quando ele saiu provavelmente está assim hoje:<br> <img src="./img/66 a 100 anos.png" width="150px"<br><br><br>`
+            } else {
+                mensagem += `A criança que nasceu quando ele saiu provavelmente está assim hoje:<br> <img src="./img/101anosMais.png" width="150px"<br><br><br>`
+            }
+
+            j++;
+        }
+        div_mensagem.innerHTML = `
+        Foram registradas ${qtAst} viagens, detalhadas a seguir:<br>
+        ${mensagem}`;
+    }
+</script>
